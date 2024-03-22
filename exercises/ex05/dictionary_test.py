@@ -27,19 +27,19 @@ def test_invert_edge() -> None:
 def test_favorite_color_use() -> None:
     """Test basic use case for returning color that appears most frequently."""
     t: dict[str, str] = {"Maya": "red", "Joey": "blue", "Tommy": "pink", "Emma": "blue"}
-    assert favorite_color(t) == {"blue"}
+    assert favorite_color(t) == "blue"
 
 
 def test_favorite_color_use_1() -> None:
     """Test use case for returning first color when all colors have equal values."""
     t: dict[str, str] = {"Evelyn": "yellow", "Elton": "blue", "Margaret": "green", "Earl": "red"}
-    assert favorite_color(t) == {"yellow"}
+    assert favorite_color(t) == "yellow"
 
 
 def test_favorite_color_edge() -> None:
     """Test edge case for when multiple colors are reported for one name."""
-    t: dict[str, str] = {"Harper": "green", "Finn": "yellow", "Daisy": "orange" "green", "Sofia": "pink"}
-    assert favorite_color(t) == {"green"}
+    t: dict[str, str] = {"Harper": "green", "Finn": "yellow", "Daisy": "orange" and "green", "Sofia": "pink"}
+    assert favorite_color(t) == "green"
 
 
 def test_count_use() -> None:
@@ -63,19 +63,19 @@ def test_count_edge() -> None:
 def test_alphabetizer_use() -> None:
     """Test basic use case for categorizing words by first letter."""
     t: list[str] = ["Animal", "Apple", "Book", "Banana", "Car", "Candle", "Dog", "Door"]
-    assert alphabetizer(t) == {"a": ["animal", "apple"], "b": ["book", "banana"], "c": ["car", "candle"], "d": ["dog", "door"]}
+    assert alphabetizer(t) == {"a": ["Animal", "Apple"], "b": ["Book", "Banana"], "c": ["Car", "Candle"], "d": ["Dog", "Door"]}
 
 
 def test_alphabetizer_use_1() -> None:
     """Test basic use case for categorizing words by their first letter."""
     t: list[str] = ["Bronte", "Hemmingway", "Wilde", "Austen", "Woolf", "Hugo"]
-    assert alphabetizer(t) == {"b": ["bronte"], "h": ["hemmingway", "hugo"], "w": ["wilde", "woolf"], "a": ["austen"]}
+    assert alphabetizer(t) == {"b": ["Bronte"], "h": ["Hemmingway", "Hugo"], "w": ["Wilde", "Woolf"], "a": ["Austen"]}
 
 
 def test_alphabetizer_edge() -> None:
-    """Test edge case for when user inputs integers."""
-    t: list[str] = [18, 10, 28, 22, 93, 31, 3]
-    assert alphabetizer(t) == {1: [18, 10], 2: [28, 22], 9: [93], 3: [31, 3]}
+    """Test edge case for when user inputs letters only."""
+    t: list[str] = ["A", "B", "C", "D"]
+    assert alphabetizer(t) == {"a": ["A"], "b": ["B"], "c": ["C"], "d": ["D"]}
 
 
 def test_update_attendence_use() -> None:
@@ -102,4 +102,4 @@ def test_update_attendence_edge() -> None:
     day: str = "Monday"
     student: str = "Alex"
     update_attendance(t, day, student)
-    assert t == {"Monday": ["Alex", "Sadie", "Alyssa", "Alex"], "Tuesday": ["Alex", "Sadie", "Alyssa", "Grace"]}
+    assert t == {"Monday": ["Alex", "Sadie", "Alyssa"], "Tuesday": ["Alex", "Sadie", "Alyssa", "Grace"]}

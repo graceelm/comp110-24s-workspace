@@ -1,4 +1,4 @@
-"""EX02 - One Shot Battleship"""
+"""EX02 - One Shot Battleship."""
 
 __author__ = "730654117"
 grid_size: int = 4
@@ -10,15 +10,15 @@ WHITE_BOX: str = "\U00002B1C"
 # ask user for input and prompt them to try again if outside grid
 row_guess: str = input("Guess a row: ")
 while int(row_guess) > grid_size or int(row_guess) < 1:
-    row_guess: str = input(f"The grid is only  {grid_size} by  {grid_size}. Try again: ")
+    row_guess = str(input(f"The grid is only {grid_size} by {grid_size}. Try again: "))
 column_guess: str = input("Guess a column: ")
 while int(column_guess) > grid_size or int(column_guess) < 1:
-    column_guess: str = input(f"The grid is only  {grid_size} by  {grid_size}. Try again: ")
+    column_guess = str(input(f"The grid is only {grid_size} by {grid_size}. Try again: "))
 # result box is red if correct and white if incorrect
 if int(column_guess) == secret_column and int(row_guess) == secret_row:
-    result_box: str = RED_BOX
+    result_box = str(RED_BOX)
 else:
-    result_box: str = WHITE_BOX
+    result_box = str(WHITE_BOX)
 # add blue boxes (and result box) in row string until end of grid, print rows
 row_idx: int = 1
 while row_idx <= grid_size:
@@ -37,7 +37,7 @@ while row_idx <= grid_size:
             column_idx += 1
     print(row_string)
     row_idx += 1
-# evaluate corectness of guess, give hint if only row guess or column guess is correct
+# evaluate corectness of guess, give hint if only row guess or column is correct
 if int(column_guess) == secret_column and int(row_guess) == secret_row:
     print("Hit!")
 elif int(row_guess) != secret_row and int(column_guess) != secret_column:

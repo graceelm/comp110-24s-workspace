@@ -45,17 +45,17 @@ def alphabetizer(uncategorized_list: list[str]) -> dict[str, list[str]]:
     categorized_dict: dict[str, list[str]] = {}
     for elem in uncategorized_list:
         if (elem[0].lower()) not in categorized_dict:
-            categorized_dict[(elem[0].lower())] = [(elem.lower())]
+            categorized_dict[(elem[0].lower())] = [elem]
         else:
-            categorized_dict[(elem[0].lower())] += [(elem.lower())]
+            categorized_dict[(elem[0].lower())] += [elem]
     return categorized_dict
 
 
 def update_attendance(attendance_dict: dict[str, list[str]], day: str, student: str) -> None:
     """Update the dictionary with new attendance information."""
-    if day not in attendance_dict:
+    if day in attendance_dict:
         if student not in attendance_dict[day]:
-            attendance_dict[day] = [student]
-    else: 
-        if student not in attendance_dict[day]:
-            attendance_dict[day] += [student]
+            attendance_dict[day].append(student)
+    else:
+        attendance_dict[day] = []
+        attendance_dict[day].append(student)
