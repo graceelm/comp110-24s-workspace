@@ -2,6 +2,7 @@
 
 __author__ = "730654117"
 
+
 def insertion_sort(x: list[int]) -> None:
     """Basic insertion sort algorithm. Insert into an already sorted list."""
     sorted: int = 0
